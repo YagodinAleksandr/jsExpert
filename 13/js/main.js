@@ -1,34 +1,78 @@
 
+(function () {
 
-var total = 0;
+	let total =0,
+		first,
+		second,
+		difference,
+		result;
 
-for (var i = 0; i<15; i++) {
+	let resultMsg = "";
+		messege = "";
 
-	var first = Math.floor((Math.random() * 6) + 1);
-	var second = Math.floor((Math.random() * 6) + 1);
-	var number;
-	var result;
+	let getRndNumber = () => {return Math.floor((Math.random() * 6) + 1);};
 
-	total += first + second;
+	let setResult = (text) => {resultMsg += text;};
 
-	if (i == 8 || i == 13 ) {
-		continue;
+	let isNumbersEqual = (first, second) => {if (first == second) {setResult(" Выпал дубль!!!");};};
+
+	let isBigDifference = () => {
+
+			if ((first > 3 && second < 4) || (first < 4 && second > 3)) {
+
+				difference = first-second;
+
+				result = Math.abs(difference);
+
+				messege = " Большой разброс между костями. Разница составляет " + result + ".";
+
+				setResult(messege);
+
+			};
+		};
+			
+	let saveInTotal = () => {total += first + second;};
+
+	let resultTotal =  () => {
+
+			let value = (total > 100) ? "Победа, вы набрали " + total + " очков!!!" : "Вы проиграли, у вас " + total + "очков(";
+
+			return value;
+		};
+
+	let printResult = () => {document.getElementById("result").innerHTML = resultMsg + "<br>" + resultTotal();};
+
+
+	function init () {
+
+		for (var i = 0; i<15; i++) {
+
+			if (i == 8 || i == 13 ) {
+				continue;
+			}
+
+			first = getRndNumber();
+			second = getRndNumber();
+
+			setResult("Первая кость: " + first + " <-> " + "Вторая кость: " + second);
+
+			isNumbersEqual(first, second);
+
+			isBigDifference();
+
+			saveInTotal();
+
+			setResult("<br>");
+
+		}
+
+		printResult();
+		
 	}
 
-	if (first == second) {
-		number = first;
-		document.getElementById("result").innerHTML += " Выпал дубль. Число " +  number + "<br>";
-		continue;
-	}
+	init();
 
-	if (first < 3 && second > 4) {
-		result = second - first;
-		document.getElementById("result").innerHTML += "Большой разброс между костями. Разница составляет " + result + "<br>";
-		continue;
-	}
+}());
 
-	document.getElementById("result").innerHTML += "Первая кость: " + first + " <-> " + "Вторая кость: " + second + "<br>";
 
-}
 
-(total > 100) ? document.getElementById("result").innerHTML += "<br>" + "Победа, ваш счет " + total + " !!!" : document.getElementById("result").innerHTML += "<br>" + "Вы проиграли, ваш счет " + total + " (";
