@@ -1,3 +1,4 @@
+'use strict';
 
 (function () {
 
@@ -7,7 +8,7 @@
 		difference,
 		result;
 
-	let resultMsg = "";
+	let resultMsg = "",
 		messege = "";
 
 	let getRndNumber = () => {return Math.floor((Math.random() * 6) + 1);};
@@ -29,27 +30,27 @@
 				setResult(messege);
 
 			};
-		};
+	};
 			
 	let saveInTotal = () => {total += first + second;};
 
 	let resultTotal =  () => {
 
-			let value = (total > 100) ? "Победа, вы набрали " + total + " очков!!!" : "Вы проиграли, у вас " + total + "очков(";
+			let value = (total > 100) ? "Победа, вы набрали " + total + " очков!!!" : "Вы проиграли, у вас " + total + " очков(";
 
 			return value;
-		};
+	};
 
 	let printResult = () => {document.getElementById("result").innerHTML = resultMsg + "<br>" + resultTotal();};
 
 
 	function init () {
 
-		for (var i = 0; i<15; i++) {
+		for (let i = 0; i<15; i++) {
 
 			if (i == 8 || i == 13 ) {
 				continue;
-			}
+			};
 
 			first = getRndNumber();
 			second = getRndNumber();
