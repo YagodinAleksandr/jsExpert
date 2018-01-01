@@ -1,34 +1,103 @@
 'use strict';
 
-var total = 0;
+// first task
 
-for (var i = 0; i<15; i++) {
+var msg = "";
 
-	var first = Math.floor((Math.random() * 6) + 1);
-	var second = Math.floor((Math.random() * 6) + 1);
-	var number;
-	var result;
+let value,
+		number,
+		text;
 
-	total += first + second;
+for (let i = 1; i < 8; i++) {
 
-	if (i == 8 || i == 13 ) {
-		continue;
+	value = i;
+	value *= i;
+
+	msg += "Квадрат " + i + " = " + value + "<br>";
+};
+
+msg += "<br>";
+
+// second task - variant 1
+
+for (let i = 1; i <= 15; i++) {
+
+	number = i;
+	value = i % 2;
+
+	if (value == 1) {
+		text = "Нечетное;"
+	} else {
+		text = "Четное;"
+	};
+
+	msg += "Число " + number +". " + text + "<br>";
+
+};
+
+msg += "<br>";
+
+// second task - variant 2
+
+console.log("Второй вариант")
+
+let y = 1;
+
+while (y <= 15) {
+	number = y;
+	value = y % 2;
+
+	if (value == 1) {
+		text = "Нечетное;"
+	} else {
+		text = "Четное;"
+	};
+
+	console.log("Число " + number +". " + text);
+
+	y++;
+
+};
+
+// second task - variant 3
+
+console.log("Третий вариант")
+
+let x = 1;
+
+do {
+	number = x;
+	value = x % 2;
+
+	if (value == 1) {
+		text = "Нечетное;"
+		} else {
+		text = "Четное;"
+	};
+
+	console.log("Число " + number +". " + text);
+
+	x++;
+
+	} while (x <= 15) {
+
+};
+
+//third task
+
+for (let i = 120; i > 0;) {
+
+	if (i > 60) {
+		i -= 20;
+
+		msg += 'Число: <b>' + i + '</b><br>';
+
+	} else {
+		i -= 10;
+
+		msg += 'Число: <b>' + i + '</b><br>';
+
 	}
+};
 
-	if (first == second) {
-		number = first;
-		document.getElementById("result").innerHTML += " Выпал дубль. Число " +  number + "<br>";
-		continue;
-	}
-
-	if (first < 3 && second > 4) {
-		result = second - first;
-		document.getElementById("result").innerHTML += "Большой разброс между костями. Разница составляет " + result + "<br>";
-		continue;
-	}
-
-	document.getElementById("result").innerHTML += "Первая кость: " + first + " <-> " + "Вторая кость: " + second + "<br>";
-
-}
-
-(total > 100) ? document.getElementById("result").innerHTML += "<br>" + "Победа, ваш счет " + total + " !!!" : document.getElementById("result").innerHTML += "<br>" + "Вы проиграли, ваш счет " + total + " (";
+document.getElementById("result").innerHTML = msg;
