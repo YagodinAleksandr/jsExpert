@@ -15,23 +15,25 @@
 
 	let setResult = (text) => {resultMsg += text;};
 
-	let isNumbersEqual = (first, second) => {if (first == second) {setResult(" Выпал дубль!!!");};};
+	let isNumbersEqual = (first, second) => {
+		if (first == second) {
+			setResult(" Выпал дубль!!!");
+		};
+	};
 
 	let isBigDifference = () => {
 
 			if ((first > 3 && second < 4) || (first < 4 && second > 3)) {
 
 				difference = first-second;
-
 				result = Math.abs(difference);
-
 				messege = " Большой разброс между костями. Разница составляет " + result + ".";
 
 				setResult(messege);
 
 			};
 	};
-			
+
 	let saveInTotal = () => {total += first + second;};
 
 	let resultTotal =  () => {
@@ -56,24 +58,16 @@
 			second = getRndNumber();
 
 			setResult("Первая кость: " + first + " <-> " + "Вторая кость: " + second);
-
 			isNumbersEqual(first, second);
-
 			isBigDifference();
-
 			saveInTotal();
-
 			setResult("<br>");
-
 		}
 
 		printResult();
-		
+
 	}
 
 	init();
 
 }());
-
-
-
