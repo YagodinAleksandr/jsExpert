@@ -2,7 +2,7 @@ var btn = document.getElementById("play");
 
 let createNewArray = (array) => {
   let newArray = [];
-    data.forEach(obj => {
+    array.forEach(obj => {
       let result = {
         name : obj.name,
         url : obj.url,
@@ -42,7 +42,7 @@ console.log(array.filter((obj) => obj.isVisible == true));
 
 function transform() {
 
-  let newData = createNewArray();
+  let newData = createNewArray(data);
   newData.splice(5, 1);
 
   let productionData = newData.map((obj) => {
