@@ -12,7 +12,7 @@ let createNewArray = (array) => {
       }
       newArray.push(result);
     })
-    return newArray;
+  return newArray;
 }
 
 let modifyUrl = (string) => "http://" + string;
@@ -29,19 +29,18 @@ let modifyDescription = (string) =>
 (string.length >= 15) ? string.substring(0, 14) + "..." : string;
 
 let modifyDate = (date) => {
-    var tmpDate = new Date(date);
-    return tmpDate.getFullYear() + "/" +
-           tmpDate.getMonth() + "/" +
-           tmpDate.getDate() + " " +
-           tmpDate.getHours() + ":" +
-           tmpDate.getMinutes();
+  var tmpDate = new Date(date);
+  return tmpDate.getFullYear() + "/" +
+         tmpDate.getMonth() + "/" +
+         tmpDate.getDate() + " " +
+         tmpDate.getHours() + ":" +
+         tmpDate.getMinutes();
 };
 
 let showResult = (array) =>
 console.log(array.filter((obj) => obj.isVisible == true));
 
 function transform() {
-
   let newData = createNewArray(data);
   newData.splice(5, 1);
 
