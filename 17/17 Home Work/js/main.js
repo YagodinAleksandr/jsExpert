@@ -1,5 +1,20 @@
 var btn = document.getElementById("play");
 
+let creatingNewArray = (array) => {
+  let newArray = [];
+    data.forEach(obj => {
+      let result = {
+        name : obj.name,
+        url : obj.url,
+        params : obj.params,
+        description : obj.description,
+        date : obj.date
+      }
+      newArray.push(result);
+    })
+    return newArray;
+}
+
 let modifyUrl = (string) => "http://" + string;
 
 let modifyName = (string) => {
@@ -26,25 +41,19 @@ let showResult = (array) =>
 console.log(array.filter((obj) => obj.isVisible == true));
 
 function transform() {
-  let newData = [];
 
-    data.splice(5, 1);
-    data.forEach(obj => {
-      delete obj.id;
-      newData.push(obj);
-    })
+  let newData = creatingNewArray();
+  newData.splice(5, 1);
 
   let productionData = newData.map((obj) => {
-    let newObj = {};
-
-    newObj.url = modifyUrl(obj.url);
-    newObj.name = modifyName(obj.name);
-    newObj.params = modifyParams(obj.params);
-    newObj.description = modifyDescription(obj.description);
-    newObj.date = modifyDate(obj.date);
-    newObj.isVisible = obj.params.status;
-
-    return newObj;
+    return {
+      url : modifyUrl(obj.url),
+      name : modifyName(obj.name),
+      params : modifyParams(obj.params),
+      description : modifyDescription(obj.description),
+      date : modifyDate(obj.date),
+      isVisible : obj.params.status
+    }
   })
 showResult(productionData);
 }
