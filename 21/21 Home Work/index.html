@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>21 Home Work</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="http://www.jsexpert.net/">JS/Expert</a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+
+				<ul class="nav navbar-nav hidden-sm hidden-md">
+					<li class="active"><a href="#">Работа с DOM</a></li>
+				</ul>
+
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="http://www.jsexpert.net/#head">Главная</a></li>
+					<li><a href="http://www.jsexpert.net/#basic">Как стать программистом</a></li>
+					<li><a href="http://www.jsexpert.net/#js">Понятный JS</a></li>
+					<li><a href="http://www.jsexpert.net/#angular">Продвинутый JS</a></li>
+					<li><a href="http://www.jsexpert.net/articles/">База знаний</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div class="site-wrapper">
+			<div class="container">
+				<div class="row text-center">
+					<div class="col-lg-4 col-md-4"></div>
+					<div class="col-lg-4 col-md-4">
+						<select id="type-selector" class="form-control">
+							<option default value="0">-Выберите один из вариантов-</option>
+							<option value="replaceMethod">Использовать replace</option>
+							<option value="templateMethod">Использовать шаблонные строки</option>
+							<option value="createElementsMethod">Использовать createElement</option>
+							</select>
+					</div>
+					<div class="col-lg-4 col-md-4">
+						<select id="line-selector" class="form-control count-selector">
+							<option default value="0">Все картинки</option>
+							<option value="3">Три картинки</option>
+							<option value="6">Шесть картинок</option>
+						</select>
+						<br><br>
+					</div>
+					<div class="col-lg-12 col-md-12">
+						<div class="btn btn-primary" id="play">Построить галлерею</div>
+						<br><br>
+					</div>
+				</div>
+				<div class="row text-center first-group">
+					<div class="col-md-12">
+						<div id="galeryBlock"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<script src="js/templates.js"></script>
+	<script src="js/data.js"></script>
+	<script src="js/main.js"></script>
+</body>
+</html>
