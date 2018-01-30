@@ -4,14 +4,8 @@ let btn = document.getElementById("play");
 let parent = document.getElementById('galeryBlock');
 
 let createConfig = () => {
-    let getMethod = () => {
-        let result = document.getElementById("type-selector");
-        return result.options[result.selectedIndex].value;
-    }
-    let getUnitsQuantity = () => {
-        let result = document.getElementById("line-selector");
-        return result.options[result.selectedIndex].value;
-    }
+    let getMethod = () => document.getElementById("type-selector").value;
+    let getUnitsQuantity = () => document.getElementById("line-selector").value;
     let config = {
         method: getMethod(),
         quantity: getUnitsQuantity()
@@ -152,7 +146,7 @@ let createGalery = (configObj) => {
 
 function init() {
     let user = createConfig();
-    createGalery(user);
+    user && createGalery(user);
 };
 
 btn.addEventListener("click", init);
