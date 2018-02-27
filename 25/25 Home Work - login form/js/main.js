@@ -40,21 +40,18 @@ var userValidationComponent = (function () {
     };
 
     let showUserPassword = () => {
-        if(showPassword.type == 'text') {
-            showPassword.type = 'password';
-        }
-        else {showPassword.type = 'text';}
+        showPassword.type = (showPassword.type == 'text') ? 'password' : 'text';
     };
 
     let formValidation = (event) => {
         event.preventDefault();
-        userValidation.getLogAndPass(login, password);
+        userValidation.getLogAndPass(login.value, password.value);
         userValidation.validateUser();
         if (userValidation.isUserValid()) {
             hideWarnings();
             showUserInfo();
         } else {
-        showWarnings(userValidation.getWarningsMessege());
+            showWarnings(userValidation.getWarningsMessege());
         };
     };
 

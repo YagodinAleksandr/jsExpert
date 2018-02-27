@@ -8,8 +8,8 @@ function UserValidation () {
     this.validationResult = false;
 
     this.getLogAndPass = function getLogAndPass(login, password) {
-        this.login = login.value;
-        this.password = password.value;
+        this.login = login;
+        this.password = password;
     };
 
     this.validateUser = function validateUser() {
