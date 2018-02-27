@@ -46,7 +46,8 @@ var userValidationComponent = (function () {
         else {showPassword.type = 'text';}
     };
 
-    let formValidation = () => {
+    let formValidation = (event) => {
+        event.preventDefault();
         userValidation.getLogAndPass(login, password);
         userValidation.validateUser();
         if (userValidation.isUserValid()) {
